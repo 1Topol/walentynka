@@ -100,6 +100,29 @@ button {
   from { transform: translateY(100vh); opacity: 1; }
   to   { transform: translateY(-10vh); opacity: 0; }
 }
+
+/* ===== RESPONSYWNOŚĆ ===== */
+@media (max-width: 600px) {
+  .heart {
+    width: 200px;
+    height: 200px;
+  }
+  .heart::before,
+  .heart::after {
+    width: 200px;
+    height: 200px;
+  }
+  h1 {
+    font-size: 2.8em;
+  }
+  button {
+    padding: 20px 40px;
+    font-size: 1.6em;
+  }
+  .floating-heart {
+    font-size: 30px;
+  }
+}
 </style>
 </head>
 
@@ -157,3 +180,4 @@ setInterval(spawnHeart, 400);
 
 </body>
 </html>
+
