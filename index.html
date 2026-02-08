@@ -37,8 +37,8 @@ body {
 }
 
 .heart {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   background: red;
   position: relative;
   transform: rotate(-45deg);
@@ -49,19 +49,19 @@ body {
 .heart::before,
 .heart::after {
   content: "";
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   background: red;
   border-radius: 50%;
   position: absolute;
 }
 
-.heart::before { top: -150px; left: 0; }
-.heart::after { left: 150px; top: 0; }
+.heart::before { top: -125px; left: 0; }
+.heart::after { left: 125px; top: 0; }
 
 @keyframes beat {
   0%,100% { transform: rotate(-45deg) scale(1); }
-  50% { transform: rotate(-45deg) scale(1.2); }
+  50% { transform: rotate(-45deg) scale(1.1); } /* mniejsze pulsowanie */
 }
 
 h1 {
@@ -150,4 +150,5 @@ setInterval(spawnHeart, 400);
 
 </body>
 </html>
+
 
