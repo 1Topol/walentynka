@@ -17,7 +17,6 @@ body {
   overflow: hidden;
 }
 
-/* ===== TŁO (NIEKLIKALNE) ===== */
 #background {
   position: fixed;
   inset: 0;
@@ -25,7 +24,6 @@ body {
   z-index: 1;
 }
 
-/* ===== UI (KLIKALNE) ===== */
 #ui {
   position: fixed;
   inset: 0;
@@ -39,8 +37,8 @@ body {
 }
 
 .heart {
-  width: 120px;
-  height: 120px;
+  width: 300px;
+  height: 300px;
   background: red;
   position: relative;
   transform: rotate(-45deg);
@@ -51,15 +49,15 @@ body {
 .heart::before,
 .heart::after {
   content: "";
-  width: 120px;
-  height: 120px;
+  width: 300px;
+  height: 300px;
   background: red;
   border-radius: 50%;
   position: absolute;
 }
 
-.heart::before { top: -60px; left: 0; }
-.heart::after { left: 60px; top: 0; }
+.heart::before { top: -150px; left: 0; }
+.heart::after { left: 150px; top: 0; }
 
 @keyframes beat {
   0%,100% { transform: rotate(-45deg) scale(1); }
@@ -67,19 +65,19 @@ body {
 }
 
 h1 {
-  font-size: 2.2em;
-  margin-bottom: 30px;
+  font-size: 4em;
+  margin-bottom: 40px;
 }
 
 .buttons {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
 }
 
 button {
-  padding: 15px 30px;
-  font-size: 1.3em;
+  padding: 30px 70px;
+  font-size: 2.5em;
   border-radius: 50px;
   border: none;
   cursor: pointer;
@@ -91,7 +89,7 @@ button {
 
 .floating-heart {
   position: absolute;
-  font-size: 20px;
+  font-size: 50px;
   animation: floatUp 6s linear infinite;
   opacity: 0.8;
 }
@@ -100,38 +98,13 @@ button {
   from { transform: translateY(100vh); opacity: 1; }
   to   { transform: translateY(-10vh); opacity: 0; }
 }
-
-/* ===== RESPONSYWNOŚĆ ===== */
-@media (max-width: 600px) {
-  .heart {
-    width: 200px;
-    height: 200px;
-  }
-  .heart::before,
-  .heart::after {
-    width: 200px;
-    height: 200px;
-  }
-  h1 {
-    font-size: 2.8em;
-  }
-  button {
-    padding: 20px 40px;
-    font-size: 1.6em;
-  }
-  .floating-heart {
-    font-size: 30px;
-  }
-}
 </style>
 </head>
 
 <body>
 
-<!-- TŁO -->
 <div id="background"></div>
 
-<!-- UI -->
 <div id="ui">
   <div id="content">
     <div class="heart"></div>
@@ -151,26 +124,23 @@ const no = document.getElementById('no');
 const content = document.getElementById('content');
 const bg = document.getElementById('background');
 
-// Kliknięcie "NIE" – powiększa przycisk "TAK"
 no.onclick = () => {
   scale += 0.25;
   yes.style.transform = `scale(${scale})`;
 };
 
-// Kliknięcie "TAK" – pokazuje wiadomość w tej samej czcionce co nagłówek
 yes.onclick = () => {
   content.innerHTML = `
     <h1>Wyjdź przed drzwi 🚪<br><br>Kocham Cię K. ❤️</h1>
   `;
 };
 
-// Serduszka w tle
 function spawnHeart() {
   const h = document.createElement('div');
   h.className = 'floating-heart';
   h.textContent = '❤️';
   h.style.left = Math.random() * 100 + 'vw';
-  h.style.fontSize = (16 + Math.random() * 24) + 'px';
+  h.style.fontSize = (50 + Math.random() * 30) + 'px';
   bg.appendChild(h);
   setTimeout(() => h.remove(), 6000);
 }
@@ -180,6 +150,4 @@ setInterval(spawnHeart, 400);
 
 </body>
 </html>
-
-
 
